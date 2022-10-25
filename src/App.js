@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import Menu from './Menu';
 import Categories from './Categories';
 import items from './data';
 
 function App() {
-  return <h2>menu project setup</h2>;
+
+  // useState method for menu
+  const [menuItems, setMenuItems] = useState(items)
+  // useState method for categories
+  const [categories, setCategories] = useState([])
+
+  return (
+    <Fragment>
+      {/* menu section */}
+      <section className="menu section">
+        {/* title */}
+        <div className='title'>
+          <h2>Our Menu</h2>
+          <div className='underline'></div>
+        </div>
+        {/* Categories component */}
+        <Categories />
+        {/* Menu component */}
+        <Menu items={menuItems} />
+      </section>
+    </Fragment>
+  );
 }
 
 export default App;
